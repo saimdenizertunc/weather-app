@@ -6,6 +6,13 @@
     color: $colour-2;
   }
 
+  &__today {
+    border-style: solid;
+    border-radius: 1em;
+    border: 0.1em;
+    background-color: rgba(0,0,0,0.1);
+  }
+
   &__box {
     display: flex;
     align-items: center;

@@ -1,20 +1,24 @@
-import React from 'react'
+import {useContext} from 'react'
+import Context from '../Context/Context';
 
-const WeatherData = ({weather}) => {
-    console.log(weather)
-    const d = new Date();
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let month = months[d.getMonth()];
+const WeatherData = () => {
+    
+  const {weather, city} = useContext(Context)
+
+  const d = new Date();
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  let month = months[d.getMonth()];
+
   return (
     <div className="weather-data">
-  <p className="weather__tagline">Weather forecast for <span className="weather-data__city">Manchester</span></p>
-  <div className="weather-data__box">
+  <p className="weather__tagline">Weather forecast for <span className="weather-data__city">{city}</span></p>
+  <div className="weather-data__box weather-data__today">
     <span className="weather-data__property">
       <p className="weather-data__title">Today</p>
     </span>
     <span className="weather-data__property">
       <p className="weather-data__title">Temperature</p>
-      <p className="weather-data__value">{weather[0].temp.day}</p>
+      <p className="weather-data__value">{weather[0].temp.day.toFixed(1)}</p>
     </span>
     <span className="weather-data__property">
       <p className="weather-data__title">Humidity</p>
@@ -31,7 +35,7 @@ const WeatherData = ({weather}) => {
       <p className="weather-data__title">Tomorrow</p>
     </span>
     <span className="weather-data__property">
-      <p className="weather-data__value">{weather[1].temp.day}</p>
+      <p className="weather-data__value">{weather[1].temp.day.toFixed(1)}</p>
     </span>
     <span className="weather-data__property">
       <p className="weather-data__value">{weather[1].humidity}</p>
@@ -47,7 +51,7 @@ const WeatherData = ({weather}) => {
     </span>
     <span className="weather-data__property">
     
-      <p className="weather-data__value">{weather[2].temp.day}</p>
+      <p className="weather-data__value">{weather[2].temp.day.toFixed(1)}</p>
     </span>
     <span className="weather-data__property">
       <p className="weather-data__value">{weather[2].humidity}</p>
@@ -62,7 +66,7 @@ const WeatherData = ({weather}) => {
     </span>
     <span className="weather-data__property">
     
-      <p className="weather-data__value">{weather[3].temp.day}</p>
+      <p className="weather-data__value">{weather[3].temp.day.toFixed(1)}</p>
     </span>
     <span className="weather-data__property">
       <p className="weather-data__value">{weather[3].humidity}</p>
