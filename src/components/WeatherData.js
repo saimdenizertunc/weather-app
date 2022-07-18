@@ -1,17 +1,20 @@
 import {useContext} from 'react'
 import Context from '../Context/Context';
+import moment from "moment"
 
 const WeatherData = () => {
     
   const {weather, city} = useContext(Context)
 
   const d = new Date();
+  const m = moment(d,"DD-MM").add(1,'d').format('LL')
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   let month = months[d.getMonth()];
 
   return (
     <div className="weather-data">
-  <p className="weather__tagline">Weather forecast for <span className="weather-data__city">{city}</span></p>
+      {moment(d,"DD-MM").format('LL')}
+  <p className="weather__tagline">Weather forecast for <span className="weather-data__city">{city}</span></p>  
   <div className="weather-data__box weather-data__today">
     <span className="weather-data__property">
       <p className="weather-data__title">Today</p>
@@ -47,7 +50,7 @@ const WeatherData = () => {
 
   <div className="weather-data__box">
     <span className="weather-data__property">
-      <p className="weather-data__title">{(d.getDate()+2).toString() + ' ' + month}</p>
+      <p className="weather-data__title">{moment(d,"DD-MM").add(2,'d').format('LL')}</p>
     </span>
     <span className="weather-data__property">
     
@@ -62,7 +65,7 @@ const WeatherData = () => {
   </div>
   <div className="weather-data__box">
     <span className="weather-data__property">
-      <p className="weather-data__title">{(d.getDate()+3).toString() + ' ' + month}</p>
+      <p className="weather-data__title">{moment(d,"DD-MM").add(3,'d').format('LL')}</p>
     </span>
     <span className="weather-data__property">
     
