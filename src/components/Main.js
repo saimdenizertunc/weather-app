@@ -27,7 +27,7 @@ const Main = () => {
         const location = e.target.elements.location.value
         setCity(location)
 
-        const API_KEY = ''
+        const API_KEY = `${process.env.REACT_APP_API_ENDPOINT}`
 
         const url = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=${API_KEY}`;
 
