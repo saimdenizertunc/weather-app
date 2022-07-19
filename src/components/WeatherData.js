@@ -8,8 +8,6 @@ const WeatherData = () => {
 
   const d = new Date();
   const m = moment(d,"DD-MM").add(1,'d').format('LL')
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  let month = months[d.getMonth()];
 
   return (
     <div className="weather-data">
